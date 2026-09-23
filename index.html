@@ -12,8 +12,32 @@ h1{margin:18px 0 4px;color:#0b4da2;font-size:clamp(30px,8vw,48px)}.glow{font-wei
 .signin{font-size:14px;line-height:1.45;margin-bottom:28px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left}
 .card{background:white;border:2px solid #dbe7f4;border-radius:16px;padding:15px}.card strong{display:block;color:#0b4da2;font-size:17px;margin-bottom:5px}
 .privacy{margin-top:22px;background:#eaf6ed;border-radius:14px;padding:14px;font-size:13px;line-height:1.45}footer{margin-top:24px;font-weight:800;color:#0b4da2}
+
+.splash{
+  position:fixed;inset:0;z-index:9999;background:#f7fbff;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;text-align:center;transition:opacity .25s ease;
+}
+.splash-inner{width:min(420px,90vw)}
+.splash-logo{width:min(210px,58vw);border-radius:26px;box-shadow:0 8px 24px #0002}
+.splash-title{margin:18px 0 5px;color:#0b4da2;font-size:32px;font-weight:900}
+.splash-text{color:#168c35;font-size:17px;font-weight:800}
+.splash-fallback{margin-top:20px;font-size:13px}
+.splash-fallback a{color:#0b4da2;font-weight:800}
 @media(max-width:420px){.cards{grid-template-columns:1fr}}
-</style></head><body><main>
+</style></head><body>
+<div id="splash" class="splash">
+  <div class="splash-inner">
+    <img class="splash-logo" src="icon-512.png" alt="Tiger Bank">
+    <div class="splash-title">TWES Tiger Bank</div>
+    <div class="splash-text">🐾 Opening Tiger Bank...</div>
+    <div class="splash-fallback">
+      Taking too long?
+      <a href="https://script.google.com/a/macros/jones.k12.ga.us/s/AKfycbz6LJEwhP8EqY7tQwj4YDSqHszvw-0NftYxfbzz6mgIvRFIqdrRFmsv_la3nd_3k9kN/exec">Open Tiger Bank</a>
+    </div>
+  </div>
+</div>
+<main>
 <img class="logo" src="icon-512.png" alt="Tiger Bank"><h1>TWES Tiger Bank</h1>
 <div class="glow">G.L.O.W. • EARN • SAVE • SPEND</div>
 <p class="tag">Recognize great choices. Reward G.L.O.W.<br><strong>Open Tiger Bank and make it count!</strong></p>
@@ -24,4 +48,16 @@ h1{margin:18px 0 4px;color:#0b4da2;font-size:clamp(30px,8vw,48px)}.glow{font-wei
 <div class="card"><strong>👥 CLASS</strong>View your homeroom at a glance</div></div>
 <div class="privacy">🔒 <strong>Look Up and Class View</strong> are limited to assigned students. <strong>Award and Store</strong> can be used with students throughout TWES.</div>
 <footer>Give Respect • Lead Others • Own Actions • Work Hard</footer>
-</main><script>if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));</script></body></html>
+</main><script>
+const TIGER_BANK_URL = "https://script.google.com/a/macros/jones.k12.ga.us/s/AKfycbz6LJEwhP8EqY7tQwj4YDSqHszvw-0NftYxfbzz6mgIvRFIqdrRFmsv_la3nd_3k9kN/exec";
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+}
+
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    window.location.replace(TIGER_BANK_URL);
+  }, 700);
+});
+</script></body></html>
