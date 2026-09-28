@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b4da2">
+
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -109,52 +110,6 @@ footer{
   color:#0b4da2
 }
 
-.splash{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:#f7fbff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-  text-align:center;
-  transition:opacity .25s ease;
-}
-
-.splash-inner{
-  width:min(420px,90vw)
-}
-
-.splash-logo{
-  width:min(210px,58vw);
-  border-radius:26px;
-  box-shadow:0 8px 24px #0002
-}
-
-.splash-title{
-  margin:18px 0 5px;
-  color:#0b4da2;
-  font-size:32px;
-  font-weight:900
-}
-
-.splash-text{
-  color:#168c35;
-  font-size:17px;
-  font-weight:800
-}
-
-.splash-fallback{
-  margin-top:20px;
-  font-size:13px
-}
-
-.splash-fallback a{
-  color:#0b4da2;
-  font-weight:800
-}
-
 @media(max-width:420px){
   .cards{grid-template-columns:1fr}
 }
@@ -162,21 +117,6 @@ footer{
 </head>
 
 <body>
-
-<div id="splash" class="splash">
-  <div class="splash-inner">
-    <img class="splash-logo" src="icon-512.png" alt="Tiger Bank">
-    <div class="splash-title">TWES Tiger Bank</div>
-    <div class="splash-text">🐾 Opening Tiger Bank...</div>
-
-    <div class="splash-fallback">
-      Taking too long?
-      <a href="https://script.google.com/a/macros/jones.k12.ga.us/s/AKfycby-eLE_LIsCYiZt6Q8963rfsHlUXGjqfjYaSzvC31hpdL4FrIQWiHXfe-jqIS4N0CEG/exec">
-        Open Tiger Bank
-      </a>
-    </div>
-  </div>
-</div>
 
 <main>
 
@@ -239,23 +179,12 @@ footer{
 </main>
 
 <script>
-
-const TIGER_BANK_URL =
-  "https://script.google.com/a/macros/jones.k12.ga.us/s/AKfycby-eLE_LIsCYiZt6Q8963rfsHlUXGjqfjYaSzvC31hpdL4FrIQWiHXfe-jqIS4N0CEG/exec";
-
 if ('serviceWorker' in navigator) {
   window.addEventListener(
     'load',
     () => navigator.serviceWorker.register('./service-worker.js')
   );
 }
-
-window.addEventListener('load', function () {
-  setTimeout(function () {
-    window.location.replace(TIGER_BANK_URL);
-  }, 700);
-});
-
 </script>
 
 </body>
